@@ -33,6 +33,7 @@
 *.dvi
 *.ps
 fast_rangefinder.pdf
+*.mat
 
 # Editor and IDE files
 *.swp
