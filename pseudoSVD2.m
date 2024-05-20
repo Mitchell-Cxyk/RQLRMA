@@ -6,7 +6,7 @@ function varargout=pseudoSVD2(A)
 % input: sketch matrix A (tall)
 % output: varargout{1}: the range matrix H which is orthonormal
 % output: vargargout{2} (optional): flag whether there exists bad part 1: has; 0: doesn't have
-
+addpath Qtools/
 s = size(A,2);
 AA=Q2cplx(A);
 [Ucc,~,~]=svd(AA,0);    % Ucc keeps the range of Chi_AA, which can be explored
