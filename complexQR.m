@@ -1,4 +1,4 @@
-function Q=pesudoQR(A)
+function Q=complexQR(A)
 flag=2;
 if flag==1
 Y=[A.w;-A.y;-A.x;-A.z];

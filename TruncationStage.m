@@ -15,7 +15,7 @@ end
 %%%%%% truncation stage
 
 if size(X,1)>=size(X,2)
-[U,S,V]=ModifiedcsvdQ(X);
+[U,S,V]=ModifiedcsvdQ77(X);
 if r<size(U,2)
 H=H*U(:,1:r);
 S=S(1:r,1:r);
@@ -24,7 +24,7 @@ else
     H=H*U;
 end
 else
-    [U,S,V]=ModifiedcsvdQ(X');
+    [U,S,V]=ModifiedcsvdQ77(X');
     if r<size(U,2)
     H=H*V(:,1:r);
     S=S(1:r,1:r);

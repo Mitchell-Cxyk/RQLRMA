@@ -1,4 +1,4 @@
-function H=stablePesudoQR(A)
+function H=PseudoQR(A)
 % first a qr step, followed by solving H'*HX = H' three times as the
 % correction steps
 H=pesudoQR(A);

@@ -16,7 +16,7 @@ if isempty(varargin)
 end
 
 r = varargin{1};
-rangefinder = @pseudoSVD2;
+rangefinder = @pseudoSVD2;  % optional choise = @pseudoQR if you want faster (m>10000)
 distr = 'Gaussian';
 independence = 'entry';
 power=0;
