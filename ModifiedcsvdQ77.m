@@ -40,7 +40,9 @@ function [U,S,V]=ModifiedcsvdQ77(A,varargin)
 %% The details have not been written as a paper, but the related theory for the corrections is described in our manuscript:
 % Chao Chang, Yuning Yang, One-Pass Randomized Algorithm with Practical Rangefinder for Large-Scale Quaternion Matrix Approximation,
 % https://arxiv.org/abs/2404.14783
-%% see section 3.2 of this manuscript for the theoretical background.
+%% see section 3.2 of this manuscript for the theoretical background (of course, here we need to split the sinigular subspace which is more complicated) than this paper.
+
+%% 
 
 %% Usage:
 % input: A: a quaternion matrix (should be the QTFM's quaternion class)
