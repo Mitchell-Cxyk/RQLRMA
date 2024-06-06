@@ -1,4 +1,4 @@
-function [U,S,V]=ModifiedcsvdQ77(A,varargin)
+function [U,S,V]=ModifiedcsvdQ77(A,varargin) 
 %% Based on solving the complex svd of the complex representation of the input matrix A: which we refer to chiA.
 %% This idea is not new; we find that it was already observed in the 1988 paper:
 % [1] Angelika Bunse-Gerstner, Ralph Byers, and Volker Mehrmann. A quaternion
