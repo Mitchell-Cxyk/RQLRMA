@@ -1,6 +1,14 @@
-function [Uq,Sq,Vq] = svdQ(Qq)
-   display('ComplexRepresentUsing...');
-%
+function [Uq,Sq,Vq] = csvdQ(Qq)
+% Note: naive implementation of computing QSVD via computing complex svd of Chi_Q
+% not always correct: when Q has duplicated singular values it does not
+% give the correct U and V (not orthonormal and do not span the correct
+% range)
+%% ModifiedcsvdQ77 is the correction of this method
+   % display('ComplexRepresentUsing...');
+% 
+% Note: The following are described by the researchers who made this
+% function.
+
 % GENERAL DESCRIPTION
 % Quaternionic Singular Value Decomposition
 % [Uq,Sq,Vq] = qsvd(Qq) produces a diagonal matrix Sq of the same dimension as the real 
@@ -22,16 +30,12 @@ function [Uq,Sq,Vq] = svdQ(Qq)
 % REFERENCE       F. Zhang, "Quaternions and matrices of Quaternions," in
 %                           Linear Algebra and Its Applications, 1997, pp. 21-57.
 
-% initialization
-%sz = size(Qq(:,:,1));
-%Uq = zeros(sz(1),sz(1),4);
-%Vq = zeros(sz(2),sz(2),4);
+ 
 
 % computer svd of the equivalent complex matrix of Qq
 Ac = Qq.w+i*Qq.x;
 Bc = Qq.y+i*Qq.z;
 Cc = [Ac Bc;-conj(Bc) conj(Ac)];
-% Cc=[Ac -conj(Bc);Bc conj(Ac)];
 [Uc, S, Vc] = svd(Cc,'econ');
 
 % use the relationship between Cc and Qq to obtain Uq, Sq, and Vq
@@ -39,10 +43,6 @@ Uq.w = real(Uc(1:end/2,1:2:end));
 Uq.x = imag(Uc(1:end/2,1:2:end));
 Uq.y = real(-conj(Uc(end/2+1:end,1:2:end)));
 Uq.z = imag(-conj(Uc(end/2+1:end,1:2:end)));
-% Uq.w = real(Uc(1:end/2,1:2:end));
-% Uq.x = imag(Uc(1:end/2,1:2:end));
-% Uq.y = real(conj(Uc(end/2+1:end,1:2:end)));
-% Uq.z = imag(conj(Uc(end/2+1:end,1:2:end)));
 Uq=quaternion(Uq.w,Uq.x,Uq.y,Uq.z);
 
 
@@ -50,10 +50,6 @@ Vq.w = real(Vc(1:end/2,1:2:end));
 Vq.x = imag(Vc(1:end/2,1:2:end));
 Vq.y = real(-conj(Vc(end/2+1:end,1:2:end)));
 Vq.z = imag(-conj(Vc(end/2+1:end,1:2:end)));
-% Vq.w = real(Vc(1:end/2,1:2:end));
-% Vq.x = imag(Vc(1:end/2,1:2:end));
-% Vq.y = real((Vc(end/2+1:end,1:2:end)));
-% Vq.z = imag((Vc(end/2+1:end,1:2:end)));
 Vq=quaternion(Vq.w,Vq.x,Vq.y,Vq.z);
 
 Sq=S(1:2:end,1:2:end);
