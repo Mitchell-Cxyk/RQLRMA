@@ -42,7 +42,13 @@ function [U,S,V]=ModifiedcsvdQ77(A,varargin)
 % https://arxiv.org/abs/2404.14783
 %% see section 3.2 of this manuscript for the theoretical background (of course, here we need to split the sinigular subspace which is more complicated) than this paper.
 
-%% 
+%% If any question or encountering bugs or issues, please contact us:
+% Chao Chang, Yuning Yang (yyang@gxu.edu.cn; yuning.yang1207@gmail.com) 
+%% If you think that this function is helpful, please give us a star for the github:
+% https://github.com/Mitchell-Cxyk/RQLRMA (containing this function ModifiedcsvdQ77)
+%% and you can give us a credit by citing
+% Chao Chang, Yuning Yang, One-Pass Randomized Algorithm with Practical Rangefinder for Large-Scale Quaternion Matrix Approximation,
+% https://arxiv.org/abs/2404.14783
 
 %% Usage:
 % input: A: a quaternion matrix (should be the QTFM's quaternion class)
