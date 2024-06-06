@@ -1,7 +1,7 @@
-function H=PseudoQR(A)
+function H=pseudoQR(A)
 % first a qr step, followed by solving H'*HX = H' three times as the
 % correction steps
-H=pesudoQR(A);
+H=complexQR(A);
 for iter=1:3
     %disp('stablize');
 Z=QLEQL(H,H'*H);
