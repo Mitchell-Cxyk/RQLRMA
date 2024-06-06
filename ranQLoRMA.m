@@ -25,15 +25,15 @@ size_input = length(varargin);
 switch size_input
     case 1
         s = r+5;
-        l = s+5;
+        l = 2*s+5;
     case 2
         rangefinder = varargin{2};
         s = r+5;
-        l = s+5;
+        l = 2*s+5;
     case 3
         rangefinder = varargin{2};
         s = varargin{3};
-        l = s+5;
+        l = 2*s+5;
     case 4
         rangefinder = varargin{2};
         s = varargin{3};
