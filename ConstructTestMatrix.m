@@ -22,10 +22,10 @@ if strcmp(distribution,'Gaussian')
     Omega=quaternion(randn(OmegaSize),randn(OmegaSize),randn(OmegaSize),randn(OmegaSize));
 elseif strcmp(distribution,'Rademacher')
     Omega= quaternion(2*(rand(OmegaSize)<0.5)-1,2*(rand(OmegaSize)<0.5)-1,2*(rand(OmegaSize)<0.5)-1,2*(rand(OmegaSize)<0.5)-1);
-elseif strcmp(distribution,'SparseGaussian')
+elseif strcmp(distribution,'sparseGaussian')
     sparseParam=0.01;
     tmp=sprandn(OmegaSize(1),OmegaSize(2),sparseParam);
-    Omega=quaternion(0.000001*eye(m,n)+sprandn(tmp),sprandn(tmp),sprandn(tmp),sprandn(tmp));
+    Omega=quaternion(0.000001*eye(m,n)+(tmp),sprandn(OmegaSize(1),OmegaSize(2),sparseParam),sprandn(OmegaSize(1),OmegaSize(2),sparseParam),sprandn(OmegaSize(1),OmegaSize(2),sparseParam));
 elseif strcmp(distribution,'subGaussian')
     if strcmp(independence,'entry')
         Omega=quaternion(rand(OmegaSize).*randn(OmegaSize),rand(OmegaSize).*randn(OmegaSize),rand(OmegaSize).*randn(OmegaSize),rand(OmegaSize).*randn(OmegaSize));
