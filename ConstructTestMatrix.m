@@ -11,7 +11,7 @@ function testMatrix = ConstructTestMatrix(m,n,distribution,independence)
 OmegaSize=[m,n];
 if strcmp(distribution,'Gaussian')
     Omega=quaternion(randn(OmegaSize),randn(OmegaSize),randn(OmegaSize),randn(OmegaSize));
-elseif strcmp(distribution,'Radmacher')
+elseif strcmp(distribution,'Rademacher')
     Omega= quaternion(2*(rand(OmegaSize)<0.5)-1,2*(rand(OmegaSize)<0.5)-1,2*(rand(OmegaSize)<0.5)-1,2*(rand(OmegaSize)<0.5)-1);
 elseif strcmp(distribution,'SparseGaussian')
     sparseParam=0.01;
