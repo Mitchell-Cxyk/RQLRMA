@@ -7,6 +7,16 @@
 %If A is rectangular, mldivide returns a least-squares solution. MATLAB solves overdetermined systems with QR factorization (see qr). For an underdetermined system, MATLAB returns the solution with the maximum number of zero elements.
 %3.The fucntion uses complex represtation, So rules 2 may be different. Please reconsider it.
 %---------------------------------------------------------------Note----------------------------
+
+
+% Authors: Hanxin Ya, Yuning Yang (yyang@gxu.edu.cn,
+%           yuning.yang1207@gmail.com)
+
+% Reference:
+% [1] Hanxin Ya, Ying Wang, Yuning Yang, On Quaternion Higher-Order Singular Value Decomposition: Models and Analysis
+%           https://arxiv.org/abs/2309.05211
+
+
 function [solution]=QLEQ(A,b)
 CA=[[A.w+A.x*i,A.y+A.z*i];[-A.y+A.z*i,A.w-A.x*i]];
 Cb=[b.w+b.x*i;-b.y+b.z*i];

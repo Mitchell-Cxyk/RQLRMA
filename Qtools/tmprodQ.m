@@ -19,7 +19,12 @@ function [T] = tmprodQ(T,U,mode,side,transpose)
 %
 %   See also tens2mat, mat2tens, contract.
 
+% Authors: Hanxin Ya, Yuning Yang (yyang@gxu.edu.cn,
+%           yuning.yang1207@gmail.com)
 
+% Reference:
+% [1] Hanxin Ya, Ying Wang, Yuning Yang, On Quaternion Higher-Order Singular Value Decomposition: Models and Analysis
+%           https://arxiv.org/abs/2309.05211
 
 n = length(U);
 size_tens = size(T);

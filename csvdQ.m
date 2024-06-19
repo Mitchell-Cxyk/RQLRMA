@@ -6,8 +6,8 @@ function [Uq,Sq,Vq] = csvdQ(Qq)
 %% ModifiedcsvdQ77 is the correction of this method
    % display('ComplexRepresentUsing...');
 % 
-% Note: The following are described by the researchers who made this
-% function.
+%
+%% Note: The following are described by the researchers who made this function.
 
 % GENERAL DESCRIPTION
 % Quaternionic Singular Value Decomposition

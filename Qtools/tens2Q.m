@@ -2,6 +2,15 @@ function [QA] = tens2Q(T)
 %TENS2Q convert a  (N+1)-th order tensor of size I_1\times \cdots I_N \times 4 or I_1\times \cdots I_N \times 4 to a 
 % quaternion tensor of size I_1\times \cdots \times I_N, 
 % where N >= 1
+
+
+% Authors: Hanxin Ya, Yuning Yang (yyang@gxu.edu.cn,
+%           yuning.yang1207@gmail.com)
+
+% Reference:
+% [1] Hanxin Ya, Ying Wang, Yuning Yang, On Quaternion Higher-Order Singular Value Decomposition: Models and Analysis
+%           https://arxiv.org/abs/2309.05211
+
 sz_tens = size(T);
 sz_end = sz_tens(end); sz_without_end = sz_tens(1:end-1);
 if ndims(T) == 1

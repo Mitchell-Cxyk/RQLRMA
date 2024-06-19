@@ -8,6 +8,15 @@ function testMatrix = ConstructTestMatrix(m,n,distribution,independence)
 % @return {quaternion} [testMatrix]
 % @see dependencies
 %
+
+% Authors: Hanxin Ya, Yuning Yang (yyang@gxu.edu.cn,
+%           yuning.yang1207@gmail.com)
+
+% Reference:
+% [1] Hanxin Ya, Ying Wang, Yuning Yang, On Quaternion Higher-Order Singular Value Decomposition: Models and Analysis
+%           https://arxiv.org/abs/2309.05211
+
+
 OmegaSize=[m,n];
 if strcmp(distribution,'Gaussian')
     Omega=quaternion(randn(OmegaSize),randn(OmegaSize),randn(OmegaSize),randn(OmegaSize));

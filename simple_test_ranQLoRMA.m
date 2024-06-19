@@ -1,4 +1,4 @@
-% For testing the whole one-pass alg with practical rangefinder
+% A simple test for the whole one-pass alg with practical rangefinder
 addpath DataGenerate/
 addpath qtfm/
 addpath Qtools/

@@ -7,6 +7,13 @@ function [H,S,V] = TruncationStage(H,X,varargin)
 % output: S\in\mathbb R^{r\times r} real diagonal 
 % output: V\in\mathbb Q^{r\times n} orthonormal.
 
+% Authors: Chao Chang, Yuning Yang (yyang@gxu.edu.cn,
+%           yuning.yang1207@gmail.com)
+
+% Reference:
+% [1] Chao Chang, Yuning Yang, Randomized Large-Scale Quaternion Matrix Approximation:
+%             Practical Rangefinders and One-Pass Algorithm, https://arxiv.org/pdf/2404.14783
+
 r = size(H,2); 
 if ~isempty(varargin) 
     r = varargin{1};
