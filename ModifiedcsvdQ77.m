@@ -1,4 +1,4 @@
-function [U,S,V]=ModifiedcsvdQ77(A,varargin) 
+function [U,S,V]=ModifiedcsvdQ77(A,varargin)
 %% Based on solving the complex svd of the complex representation of the input matrix A: which we refer to chiA.
 %% This idea is not new; we find that it was already observed in the 1988 paper:
 % [1] Angelika Bunse-Gerstner, Ralph Byers, and Volker Mehrmann. A quaternion
@@ -84,7 +84,7 @@ if size(A,1)<size(A,2)
     transflag=1;
 end
 m=size(A,1);n=size(A,2);
-[Uall,Sall,Vall]=svd(Q2cplx(A),0);
+[Uall,Sall,Vall]=svd(Q2cplx(A),'econ');
 restFlag=0; % index before the restPart
 Sall=diag(Sall); %Uall,Vall are matrices, Sall is a vector.
 Uc=(Uall(:,1:2:end));Vc=(Vall(:,1:2:end));S=Sall(1:2:end); %initialization U S V to store output.

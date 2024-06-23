@@ -1,4 +1,24 @@
-function testMatrix = ConstructTestMatrix(m,n,distribution,independence)
+function testMatrix = ConstructTestMatrix(m,n,varargin)
+if isempty(varargin)
+    distribution='Gaussian';
+    independence='entry';
+else
+    size_input = length(varargin);
+    switch size_input
+        case 1
+            distribution=varargin{1};
+            independence='entry';
+            sparseParam=0.01;
+        case 2
+            distribution=varargin{1};
+            independence=varargin{2};
+            sparseParam=0.01;
+        case 3
+            distribution=varargin{1};
+            independence=varargin{2};
+            sparseParam=varargin{3};
+    end       
+end
 %
 % This script is to construct a m * n quaternion test matrix that statisfy the @distrubution and @independence.
 %
@@ -8,24 +28,15 @@ function testMatrix = ConstructTestMatrix(m,n,distribution,independence)
 % @return {quaternion} [testMatrix]
 % @see dependencies
 %
-
-% Authors: Hanxin Ya, Yuning Yang (yyang@gxu.edu.cn,
-%           yuning.yang1207@gmail.com)
-
-% Reference:
-% [1] Hanxin Ya, Ying Wang, Yuning Yang, On Quaternion Higher-Order Singular Value Decomposition: Models and Analysis
-%           https://arxiv.org/abs/2309.05211
-
-
 OmegaSize=[m,n];
 if strcmp(distribution,'Gaussian')
     Omega=quaternion(randn(OmegaSize),randn(OmegaSize),randn(OmegaSize),randn(OmegaSize));
-elseif strcmp(distribution,'Rademacher')
+elseif strcmp(distribution,'Radmacher')
     Omega= quaternion(2*(rand(OmegaSize)<0.5)-1,2*(rand(OmegaSize)<0.5)-1,2*(rand(OmegaSize)<0.5)-1,2*(rand(OmegaSize)<0.5)-1);
-elseif strcmp(distribution,'sparseGaussian')
-    sparseParam=0.01;
+elseif strcmp(distribution,'SparseGaussian')||strcmp(distribution,'sparseGaussian')
+    % sparseParam=0.01;
     tmp=sprandn(OmegaSize(1),OmegaSize(2),sparseParam);
-    Omega=quaternion(0.000001*eye(m,n)+(tmp),sprandn(OmegaSize(1),OmegaSize(2),sparseParam),sprandn(OmegaSize(1),OmegaSize(2),sparseParam),sprandn(OmegaSize(1),OmegaSize(2),sparseParam));
+    Omega=quaternion(0.000001*eye(m,n)+sprandn(tmp),sprandn(tmp),sprandn(tmp),sprandn(tmp));
 elseif strcmp(distribution,'subGaussian')
     if strcmp(independence,'entry')
         Omega=quaternion(rand(OmegaSize).*randn(OmegaSize),rand(OmegaSize).*randn(OmegaSize),rand(OmegaSize).*randn(OmegaSize),rand(OmegaSize).*randn(OmegaSize));

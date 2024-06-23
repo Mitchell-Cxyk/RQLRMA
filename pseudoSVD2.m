@@ -6,12 +6,12 @@ function varargout=pseudoSVD2(A)
 % input: sketch matrix A (tall)
 % output: varargout{1}: the range matrix H which is orthonormal
 % output: vargargout{2} (optional): flag whether there exists bad part 1: has; 0: doesn't have
-addpath Qtools/
+
 s = size(A,2);
 AA=Q2cplx(A);
-[Ucc,~,~]=svd(AA,0);    % Ucc keeps the range of Chi_AA, which can be explored
+[Ucc,~,~]=svd(AA,'econ');    % Ucc keeps the range of Chi_AA, which can be explored
 
-
+%%-----------%%
 %%%%%%%%%%%%%%%%%%%%%%%%
 % detect the good and bad parts of Ucc by Ucc'*Ucc, ref. our paper
 priH = constrPrimeH(Ucc);   % first construct the H as usual
@@ -84,15 +84,13 @@ end
 
 
 function priH = constrPrimeH(Ucc)
+% the code in fact does the following:
+% Hc = Ucc(:,1:2:end); priH = Qc2Q(Hc);
 
 w = real(Ucc(1:end/2,1:2:end));
 x = imag(Ucc(1:end/2,1:2:end));
 y = real(-conj(Ucc(end/2+1:end,1:2:end)));
 z = imag(-conj(Ucc(end/2+1:end,1:2:end)));
-% Uq.w = real(Uc(1:end/2,1:2:end));
-% Uq.x = imag(Uc(1:end/2,1:2:end));
-% Uq.y = real(conj(Uc(end/2+1:end,1:2:end)));
-% Uq.z = imag(conj(Uc(end/2+1:end,1:2:end)));
 priH=quaternion(w,x,y,z);
 
 end

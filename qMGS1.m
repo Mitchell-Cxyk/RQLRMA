@@ -1,8 +1,4 @@
 function [Q, R] = qMGS1(A)
-% implementation of the real structure-preserving quaternion modified Gram Schimit orthonormalization
-% method introduced in 
-% Musheng Wei et al., Quaternion Matrix Computations, Nova Science Publishers, 2018
-
 AA=[A.w;A.x;A.y;A.z];
     m=size(AA,1)/4;
     n=size(AA,2);

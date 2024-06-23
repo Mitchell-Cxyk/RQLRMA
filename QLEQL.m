@@ -9,15 +9,6 @@ function output = QLEQL(b,A)
 % @return {quaternion matrix} [output] 
 % @see dependencies
 %
-
-
-% Authors: Hanxin Ya, Yuning Yang (yyang@gxu.edu.cn,
-%           yuning.yang1207@gmail.com)
-
-% Reference:
-% [1] Hanxin Ya, Ying Wang, Yuning Yang, On Quaternion Higher-Order Singular Value Decomposition: Models and Analysis
-%           https://arxiv.org/abs/2309.05211
-
 CA=[[A.w+A.x*i,A.y+A.z*i];[-A.y+A.z*i,A.w-A.x*i]];
 Cb=[b.w+b.x*i,b.y+b.z*i];
 Cx=Cb/CA;

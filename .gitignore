@@ -33,7 +33,9 @@
 *.dvi
 *.ps
 fast_rangefinder.pdf
-*.mat
+*.zip
+GxuLevel20.fig
+GxuLevel_20.tif
 
 # Editor and IDE files
 *.swp
@@ -49,3 +51,4 @@ fast_rangefinder.pdf
 .vscode/
 .idea/
 *.bak
+*.mat
