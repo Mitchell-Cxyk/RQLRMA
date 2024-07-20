@@ -9,6 +9,7 @@ function [H,X] = QBStage(Y,W,Psi,rangefinder)
 
 %%%%%% QB approximation with (non-)orthonormal rangefinder H
 H=rangefinder(Y);
+H=H(:,1:size(Y,2));
 clear Y;
 X=QLEQ(Psi*H,W);
 clear W;
