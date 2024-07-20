@@ -1,0 +1,17 @@
+% s=1000;
+% [m,n]=size(DataQ);
+% Y=DataQ*randnQ([n,s]);
+% H=pseudoSVD2(Y);
+% clearvars Y;
+% B=H'*DataQ;
+% [~,S,~]=csvdQ(B);
+% S=diag(S);
+color={[1,85,153],[250,192,15],[243,118,74],[95,198,201],[79,89,109]};
+semilogy(S,'o','DisplayName','Singular values(Estimated)','Color',color{1}/255,'LineWidth',1);
+xlabel('order:');
+ylabel('Singular value');
+set(gca, 'linewidth', 3, 'fontsize', 13);
+set(gca,'yminortick','on');
+set(gca,'xminortick','on');
+legend('Location','best');
+saveas(gca,'figure/CFDSingularValue');

@@ -1,0 +1,3 @@
+testODE;
+testLorenz;
+plotLorenz;
